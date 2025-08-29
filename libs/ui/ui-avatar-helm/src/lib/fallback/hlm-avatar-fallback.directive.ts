@@ -1,5 +1,5 @@
 import { Directive, computed, inject } from '@angular/core';
-import { BrnAvatarFallbackDirective, hexColorFor, isBright } from '@spartan-ng/brain/avatar';
+import { BrnAvatarFallback, hexColorFor, isBright } from '@spartan-ng/brain/avatar';
 import { hlm } from '@spartan-ng/brain/core';
 
 @Directive({
@@ -8,7 +8,7 @@ import { hlm } from '@spartan-ng/brain/core';
 	exportAs: 'avatarFallback',
 	hostDirectives: [
 		{
-			directive: BrnAvatarFallbackDirective,
+			directive: BrnAvatarFallback,
 			inputs: ['class:class', 'autoColor:autoColor'],
 		},
 	],
@@ -18,7 +18,7 @@ import { hlm } from '@spartan-ng/brain/core';
 	},
 })
 export class HlmAvatarFallbackDirective {
-	private readonly _brn = inject(BrnAvatarFallbackDirective);
+	private readonly _brn = inject(BrnAvatarFallback);
 	private readonly _hex = computed(() => {
 		if (!this._brn.autoColor() || !this._brn.getTextContent()) return;
 		return hexColorFor(this._brn.getTextContent());

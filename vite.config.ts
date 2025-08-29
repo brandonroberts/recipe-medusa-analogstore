@@ -6,26 +6,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { getPrerenderedRoutes } from './tools/pre-render';
 
 // https://vitejs.dev/config/
-export default ({ mode }: ConfigEnv) => {
+export default defineConfig(({ mode }: ConfigEnv) => {
   return {
     build: {
       target: ['es2020'],
     },
     resolve: {
       mainFields: ['module'],
-    },
-    optimizeDeps: {
-      include: ['@angular/common', '@angular/forms'],
-    },
-    ssr: {
-      noExternal: [
-        '@spartan-ng/**',
-        '@angular/cdk/**',
-        '@medusajs/js-sdk',
-        '@medusajs/types',
-        '@ng-icons/**',
-        'ngx-scrollbar/**',
-      ],
     },
     plugins: [
       analog({
@@ -49,4 +36,4 @@ export default ({ mode }: ConfigEnv) => {
       'import.meta.vitest': mode !== 'production',
     },
   };
-};
+});

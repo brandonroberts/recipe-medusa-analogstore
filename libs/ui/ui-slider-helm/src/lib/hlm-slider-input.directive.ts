@@ -1,12 +1,12 @@
 import { Directive, computed, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BrnSliderInputDirective } from '@spartan-ng/brain/slider';
+import { BrnSliderInput } from '@spartan-ng/brain/slider';
 import type { ClassValue } from 'clsx';
 
 @Directive({
 	selector: 'input[hlmSliderInput], input[brnSliderInput]',
 	standalone: true,
-	hostDirectives: [BrnSliderInputDirective],
+	hostDirectives: [BrnSliderInput],
 	host: {
 		'[class]': '_computedClass()',
 	},

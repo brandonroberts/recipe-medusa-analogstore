@@ -1,6 +1,6 @@
 import { Directive, computed, inject, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BRN_SLIDER, BrnSliderTickMarkDirective } from '@spartan-ng/brain/slider';
+import { BRN_SLIDER, BrnSliderTickMark } from '@spartan-ng/brain/slider';
 import type { ClassValue } from 'clsx';
 
 @Directive({

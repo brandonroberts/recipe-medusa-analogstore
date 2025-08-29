@@ -28,8 +28,8 @@ export class ProductRailComponent {
   private _medusa = inject(MedusaService);
 
   protected products = resource({
-    request: () => ({regionId: this.region()?.id || 'US',}),
-    loader: (params) => this._medusa.productList(params.request)
+    params: () => ({regionId: this.region()?.id || 'US',}),
+    loader: (params) => this._medusa.productList(params.params)
   });
 
   public collection = input<HttpTypes.StoreCollection | undefined>();

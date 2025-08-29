@@ -12,13 +12,13 @@ import {
 import { FormsModule } from '@angular/forms';
 import { BrnSelectImports } from '@spartan-ng/brain/select';
 import { HlmSelectImports } from '@spartan-ng/ui-select-helm';
-import { HlmPaginationContentDirective } from './hlm-pagination-content.directive';
+import { HlmPaginationContent } from './hlm-pagination-content.directive';
 import { HlmPaginationEllipsisComponent } from './hlm-pagination-ellipsis.component';
-import { HlmPaginationItemDirective } from './hlm-pagination-item.directive';
-import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
+import { HlmPaginationItem } from './hlm-pagination-item.directive';
+import { HlmPaginationLink } from './hlm-pagination-link.directive';
 import { HlmPaginationNextComponent } from './hlm-pagination-next.component';
 import { HlmPaginationPreviousComponent } from './hlm-pagination-previous.component';
-import { HlmPaginationDirective } from './hlm-pagination.directive';
+import { HlmPagination } from './hlm-pagination.directive';
 
 @Component({
 	selector: 'hlm-numbered-pagination',

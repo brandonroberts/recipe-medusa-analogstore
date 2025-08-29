@@ -7,7 +7,7 @@ import { hlm } from '@spartan-ng/brain/core';
 import { ButtonVariants } from '@spartan-ng/ui-button-helm';
 import { HlmIconDirective } from '@spartan-ng/ui-icon-helm';
 import { ClassValue } from 'clsx';
-import { HlmPaginationLinkDirective } from './hlm-pagination-link.directive';
+import { HlmPaginationLink } from './hlm-pagination-link.directive';
 
 @Component({
 	selector: 'hlm-pagination-next',

@@ -1,19 +1,19 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, forwardRef } from '@angular/core';
-import { BrnDialogComponent } from '@spartan-ng/brain/dialog';
-import { BrnSheetComponent, BrnSheetOverlayComponent } from '@spartan-ng/brain/sheet';
+import { BrnDialog } from '@spartan-ng/brain/dialog';
+import { BrnSheet, BrnSheetOverlay } from '@spartan-ng/brain/sheet';
 import { HlmSheetOverlayDirective } from './hlm-sheet-overlay.directive';
 
 @Component({
 	selector: 'hlm-sheet',
 	standalone: true,
-	imports: [BrnSheetOverlayComponent, HlmSheetOverlayDirective],
+	imports: [BrnSheetOverlay, HlmSheetOverlayDirective],
 	providers: [
 		{
-			provide: BrnDialogComponent,
-			useExisting: forwardRef(() => BrnSheetComponent),
+			provide: BrnDialog,
+			useExisting: forwardRef(() => BrnSheet),
 		},
 		{
-			provide: BrnSheetComponent,
+			provide: BrnSheet,
 			useExisting: forwardRef(() => HlmSheetComponent),
 		},
 	],
@@ -25,9 +25,9 @@ import { HlmSheetOverlayDirective } from './hlm-sheet-overlay.directive';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	exportAs: 'hlmSheet',
 })
-export class HlmSheetComponent extends BrnSheetComponent {
+export class HlmSheetComponent extends BrnSheet {
 	constructor() {
 		super();
-		this.closeDelay = 100;
+		// this.closeDelay = 100;
 	}
 }

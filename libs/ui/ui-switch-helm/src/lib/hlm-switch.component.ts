@@ -5,7 +5,7 @@ import { hlm } from '@spartan-ng/brain/core';
 import { ChangeFn, TouchFn } from '@spartan-ng/brain/forms';
 import { BrnSwitchComponent, BrnSwitchThumbComponent } from '@spartan-ng/brain/switch';
 import type { ClassValue } from 'clsx';
-import { HlmSwitchThumbDirective } from './hlm-switch-thumb.directive';
+import { HlmSwitchThumb } from './hlm-switch-thumb.directive';
 export const HLM_SWITCH_VALUE_ACCESSOR = {
 	provide: NG_VALUE_ACCESSOR,
 	useExisting: forwardRef(() => HlmSwitchComponent),
@@ -14,7 +14,7 @@ export const HLM_SWITCH_VALUE_ACCESSOR = {
 
 @Component({
 	selector: 'hlm-switch',
-	imports: [BrnSwitchThumbComponent, BrnSwitchComponent, HlmSwitchThumbDirective],
+	imports: [BrnSwitchThumbComponent, BrnSwitchComponent, HlmSwitchThumb],
 	standalone: true,
 	host: {
 		class: 'contents',

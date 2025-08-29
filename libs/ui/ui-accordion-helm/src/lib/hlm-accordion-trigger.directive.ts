@@ -1,5 +1,5 @@
 import { Directive, computed, input } from '@angular/core';
-import { BrnAccordionTriggerDirective } from '@spartan-ng/brain/accordion';
+import { BrnAccordionTrigger } from '@spartan-ng/brain/accordion';
 import { hlm } from '@spartan-ng/brain/core';
 import type { ClassValue } from 'clsx';
 
@@ -10,7 +10,7 @@ import type { ClassValue } from 'clsx';
 		'[style.--tw-ring-offset-shadow]': '"0 0 #000"',
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnAccordionTriggerDirective],
+	hostDirectives: [BrnAccordionTrigger],
 })
 export class HlmAccordionTriggerDirective {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

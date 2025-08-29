@@ -1,6 +1,6 @@
 import { Component, computed, contentChild, contentChildren, effect } from '@angular/core';
 import { BrnFormFieldControl } from '@spartan-ng/brain/form-field';
-import { HlmErrorDirective } from './hlm-error.directive';
+import { HlmError } from './hlm-error.directive';
 
 @Component({
 	selector: 'hlm-form-field',

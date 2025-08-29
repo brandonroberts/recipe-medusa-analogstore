@@ -1,6 +1,6 @@
 import { Component, Input, computed, input, signal } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BrnMenuDirective } from '@spartan-ng/brain/menu';
+import { BrnMenu } from '@spartan-ng/brain/menu';
 import { type VariantProps, cva } from 'class-variance-authority';
 import type { ClassValue } from 'clsx';
 
@@ -26,7 +26,7 @@ type MenuVariants = VariantProps<typeof menuVariants>;
 	host: {
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnMenuDirective],
+	hostDirectives: [BrnMenu],
 	template: `
 		<ng-content />
 	`,

@@ -6,7 +6,7 @@ import { hlm } from '@spartan-ng/brain/core';
 import { BrnDialogCloseDirective, BrnDialogRef, injectBrnDialogContext } from '@spartan-ng/brain/dialog';
 import { HlmIconDirective } from '@spartan-ng/ui-icon-helm';
 import type { ClassValue } from 'clsx';
-import { HlmDialogCloseDirective } from './hlm-dialog-close.directive';
+import { HlmDialogClose } from './hlm-dialog-close.directive';
 
 @Component({
 	selector: 'hlm-dialog-content',

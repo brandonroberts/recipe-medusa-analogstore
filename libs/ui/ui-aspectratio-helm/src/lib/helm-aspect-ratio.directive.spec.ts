@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
-import { HlmAspectRatioDirective } from './helm-aspect-ratio.directive';
+import { HlmAspectRatio } from './helm-aspect-ratio.directive';
 
 @Component({
 	selector: 'hlm-mock',
 	standalone: true,
-	imports: [HlmAspectRatioDirective],
+	imports: [HlmAspectRatio],
 	template: `
 		<div [hlmAspectRatio]="ratio">
 			<img

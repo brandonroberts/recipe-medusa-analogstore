@@ -29,7 +29,7 @@ import {
 		role: 'region',
 		'aria-roledescription': 'carousel',
 	},
-	imports: [EmblaCarouselDirective],
+	imports: [EmblaCarousel],
 	template: `
 		<div
 			emblaCarousel

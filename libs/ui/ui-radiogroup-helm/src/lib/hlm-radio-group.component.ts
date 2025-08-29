@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BrnRadioGroupDirective } from '@spartan-ng/brain/radio-group';
+import { BrnRadioGroup } from '@spartan-ng/brain/radio-group';
 import type { ClassValue } from 'clsx';
 
 @Component({

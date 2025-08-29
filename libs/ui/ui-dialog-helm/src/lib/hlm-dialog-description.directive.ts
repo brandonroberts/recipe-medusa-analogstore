@@ -1,6 +1,6 @@
 import { Directive, computed, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BrnDialogDescriptionDirective } from '@spartan-ng/brain/dialog';
+import { BrnDialogDescription } from '@spartan-ng/brain/dialog';
 import type { ClassValue } from 'clsx';
 
 @Directive({
@@ -9,7 +9,7 @@ import type { ClassValue } from 'clsx';
 	host: {
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnDialogDescriptionDirective],
+	hostDirectives: [BrnDialogDescription],
 })
 export class HlmDialogDescriptionDirective {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

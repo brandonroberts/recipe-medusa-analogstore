@@ -1,6 +1,6 @@
 import { Directive, computed, inject, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BRN_SLIDER, BrnSliderThumbDirective } from '@spartan-ng/brain/slider';
+import { BRN_SLIDER, BrnSliderThumb } from '@spartan-ng/brain/slider';
 import type { ClassValue } from 'clsx';
 
 @Directive({
@@ -10,7 +10,7 @@ import type { ClassValue } from 'clsx';
 		'[class]': '_computedClass()',
 		'[attr.dir]': '_direction()',
 	},
-	hostDirectives: [BrnSliderThumbDirective],
+	hostDirectives: [BrnSliderThumb],
 })
 export class HlmSliderThumbDirective {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

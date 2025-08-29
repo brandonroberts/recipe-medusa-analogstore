@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { HlmRadioGroupComponent } from './lib/hlm-radio-group.component';
 import { HlmRadioIndicatorComponent } from './lib/hlm-radio-indicator.component';
-import { HlmRadioDirective } from './lib/hlm-radio.directive';
+import { HlmRadio } from './lib/hlm-radio.directive';
 
 export * from './lib/hlm-radio-group.component';
 export * from './lib/hlm-radio-indicator.component';

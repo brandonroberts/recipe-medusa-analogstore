@@ -2,7 +2,7 @@ import { Component, computed, contentChild, inject, input } from '@angular/core'
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronDown } from '@ng-icons/lucide';
 import { hlm } from '@spartan-ng/brain/core';
-import { BrnSelectComponent, BrnSelectTriggerDirective } from '@spartan-ng/brain/select';
+import { BrnSelectComponent, BrnSelectTrigger } from '@spartan-ng/brain/select';
 import { HlmIconDirective } from '@spartan-ng/ui-icon-helm';
 import { type VariantProps, cva } from 'class-variance-authority';
 import type { ClassValue } from 'clsx';

@@ -1,5 +1,5 @@
 import { Directive, computed, input } from '@angular/core';
-import { BrnAlertDialogDescriptionDirective } from '@spartan-ng/brain/alert-dialog';
+import { BrnAlertDialogDescription } from '@spartan-ng/brain/alert-dialog';
 import { hlm } from '@spartan-ng/brain/core';
 import type { ClassValue } from 'clsx';
 
@@ -9,7 +9,7 @@ import type { ClassValue } from 'clsx';
 	host: {
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnAlertDialogDescriptionDirective],
+	hostDirectives: [BrnAlertDialogDescription],
 })
 export class HlmAlertDialogDescriptionDirective {
 	public readonly userClass = input<ClassValue>('', { alias: 'class' });

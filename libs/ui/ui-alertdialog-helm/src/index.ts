@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { HlmAlertDialogActionButtonDirective } from './lib/hlm-alert-dialog-action-button.directive';
-import { HlmAlertDialogCancelButtonDirective } from './lib/hlm-alert-dialog-cancel-button.directive';
+import { HlmAlertDialogActionButton } from './lib/hlm-alert-dialog-action-button.directive';
+import { HlmAlertDialogCancelButton } from './lib/hlm-alert-dialog-cancel-button.directive';
 import { HlmAlertDialogContentComponent } from './lib/hlm-alert-dialog-content.component';
-import { HlmAlertDialogDescriptionDirective } from './lib/hlm-alert-dialog-description.directive';
+import { HlmAlertDialogDescription } from './lib/hlm-alert-dialog-description.directive';
 import { HlmAlertDialogFooterComponent } from './lib/hlm-alert-dialog-footer.component';
 import { HlmAlertDialogHeaderComponent } from './lib/hlm-alert-dialog-header.component';
-import { HlmAlertDialogOverlayDirective } from './lib/hlm-alert-dialog-overlay.directive';
-import { HlmAlertDialogTitleDirective } from './lib/hlm-alert-dialog-title.directive';
+import { HlmAlertDialogOverlay } from './lib/hlm-alert-dialog-overlay.directive';
+import { HlmAlertDialogTitle } from './lib/hlm-alert-dialog-title.directive';
 import { HlmAlertDialogComponent } from './lib/hlm-alert-dialog.component';
 
 export * from './lib/hlm-alert-dialog-action-button.directive';

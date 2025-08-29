@@ -3,15 +3,15 @@ import { Component, booleanAttribute, computed, input, model, numberAttribute, v
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideChevronLeft, lucideChevronRight } from '@ng-icons/lucide';
 import {
-	BrnCalendarCellButtonDirective,
-	BrnCalendarCellDirective,
-	BrnCalendarDirective,
-	BrnCalendarGridDirective,
-	BrnCalendarHeaderDirective,
-	BrnCalendarNextButtonDirective,
-	BrnCalendarPreviousButtonDirective,
-	BrnCalendarWeekDirective,
-	BrnCalendarWeekdayDirective,
+	BrnCalendarCellButton,
+	BrnCalendarCell,
+	BrnCalendar,
+	BrnCalendarGrid,
+	BrnCalendarHeader,
+	BrnCalendarNextButton,
+	BrnCalendarPreviousButton,
+	BrnCalendarWeek,
+	BrnCalendarWeekday,
 	Weekday,
 	injectBrnCalendarI18n,
 } from '@spartan-ng/brain/calendar';
@@ -24,15 +24,15 @@ import { HlmIconDirective } from '@spartan-ng/ui-icon-helm';
 	standalone: true,
 	selector: 'hlm-calendar',
 	imports: [
-		BrnCalendarDirective,
-		BrnCalendarHeaderDirective,
-		BrnCalendarNextButtonDirective,
-		BrnCalendarPreviousButtonDirective,
-		BrnCalendarWeekdayDirective,
-		BrnCalendarWeekDirective,
-		BrnCalendarCellButtonDirective,
-		BrnCalendarCellDirective,
-		BrnCalendarGridDirective,
+		BrnCalendar,
+		BrnCalendarHeader,
+		BrnCalendarNextButton,
+		BrnCalendarPreviousButton,
+		BrnCalendarWeekday,
+		BrnCalendarWeek,
+		BrnCalendarCellButton,
+		BrnCalendarCell,
+		BrnCalendarGrid,
 		NgIcon,
 		HlmIconDirective,
 	],
@@ -141,7 +141,7 @@ export class HlmCalendarComponent<T> {
 	public readonly defaultFocusedDate = input<T>();
 
 	/** Access the calendar directive */
-	private readonly _calendar = viewChild.required(BrnCalendarDirective);
+	private readonly _calendar = viewChild.required(BrnCalendar);
 
 	/** Get the heading for the current month and year */
 	protected heading = computed(() =>

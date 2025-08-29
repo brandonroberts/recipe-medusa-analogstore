@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { HlmBreadcrumbEllipsisComponent } from './lib/breadcrumb-ellipsis.component';
-import { HlmBreadcrumbItemDirective } from './lib/breadcrumb-item.directive';
-import { HlmBreadcrumbLinkDirective } from './lib/breadcrumb-link.directive';
-import { HlmBreadcrumbListDirective } from './lib/breadcrumb-list.directive';
-import { HlmBreadcrumbPageDirective } from './lib/breadcrumb-page.directive';
+import { HlmBreadcrumbItem } from './lib/breadcrumb-item.directive';
+import { HlmBreadcrumbLink } from './lib/breadcrumb-link.directive';
+import { HlmBreadcrumbList } from './lib/breadcrumb-list.directive';
+import { HlmBreadcrumbPage } from './lib/breadcrumb-page.directive';
 import { HlmBreadcrumbSeparatorComponent } from './lib/breadcrumb-separator.component';
-import { HlmBreadcrumbDirective } from './lib/breadcrumb.directive';
+import { HlmBreadcrumb } from './lib/breadcrumb.directive';
 
 export * from './lib/breadcrumb-ellipsis.component';
 export * from './lib/breadcrumb-item.directive';

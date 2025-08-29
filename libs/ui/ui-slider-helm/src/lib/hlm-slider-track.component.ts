@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { hlm } from '@spartan-ng/brain/core';
-import { BRN_SLIDER, BRN_SLIDER_TRACK, BrnSliderTrackDirective } from '@spartan-ng/brain/slider';
+import { BRN_SLIDER, BRN_SLIDER_TRACK, BrnSliderTrack } from '@spartan-ng/brain/slider';
 import type { ClassValue } from 'clsx';
-import { HlmSliderTickMarkDirective } from './hlm-slider-tick-mark.directive';
-import { HlmSliderTickMarksDirective } from './hlm-slider-tick-marks.directive';
-import { HlmSliderTrackActiveFillDirective } from './hlm-slider-track-active-fill.directive';
-import { HlmSliderTrackActiveDirective } from './hlm-slider-track-active.directive';
-import { HlmSliderTrackInactiveDirective } from './hlm-slider-track-inactive.directive';
+import { HlmSliderTickMark } from './hlm-slider-tick-mark.directive';
+import { HlmSliderTickMarks } from './hlm-slider-tick-marks.directive';
+import { HlmSliderTrackActiveFill } from './hlm-slider-track-active-fill.directive';
+import { HlmSliderTrackActive } from './hlm-slider-track-active.directive';
+import { HlmSliderTrackInactive } from './hlm-slider-track-inactive.directive';
 
 @Component({
 	selector: 'hlm-slider-track, brn-slider-track [hlm]',
@@ -35,7 +35,7 @@ import { HlmSliderTrackInactiveDirective } from './hlm-slider-track-inactive.dir
 	host: {
 		'[class]': '_computedClass()',
 	},
-	hostDirectives: [BrnSliderTrackDirective],
+	hostDirectives: [BrnSliderTrack],
 	imports: [
 		HlmSliderTrackInactiveDirective,
 		HlmSliderTrackActiveDirective,

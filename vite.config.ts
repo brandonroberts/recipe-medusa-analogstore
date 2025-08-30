@@ -12,20 +12,11 @@ export default ({ mode }: ConfigEnv) => {
       target: ['es2020'],
     },
     resolve: {
+      conditions: ['import', 'require'],
       mainFields: ['module'],
     },
-    optimizeDeps: {
-      include: ['@angular/common', '@angular/forms'],
-    },
     ssr: {
-      noExternal: [
-        '@spartan-ng/**',
-        '@angular/cdk/**',
-        '@medusajs/js-sdk',
-        '@medusajs/types',
-        '@ng-icons/**',
-        'ngx-scrollbar/**',
-      ],
+      noExternal: ['@medusajs/js-sdk']
     },
     plugins: [
       analog({

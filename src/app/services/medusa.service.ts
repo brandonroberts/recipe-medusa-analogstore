@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, InjectionToken } from '@angular/core';
 import Medusa, { Config } from '@medusajs/js-sdk';
 import { HttpTypes } from '@medusajs/types';
-import { catchError, firstValueFrom, map, Observable } from 'rxjs';
 import medusaError from '../util/medusa-error';
 import { convertToLocale } from '../util/money';
 import { getPercentageDiff } from '../util/get-percent-diff';
@@ -20,9 +18,9 @@ export function provideMedusaConfig(config: Config) {
 
 @Injectable({ providedIn: 'root' })
 export class MedusaService {
-  #medusaConfig = inject(MEDUSA_CONFIG);
-  #http = inject(HttpClient);
   #regionMap = new Map<string, HttpTypes.StoreRegion>();
+  #medusaConfig: Config = inject(MEDUSA_CONFIG);
+  #sdk = new Medusa(this.#medusaConfig);
 
   public async productList({
     pageParam = 1,
@@ -62,25 +60,14 @@ export class MedusaService {
     const _pageParam = Math.max(pageParam, 1);
     const offset = (_pageParam - 1) * limit;
 
-    const response = await firstValueFrom(
-      this.#http.get<{
-        products: HttpTypes.StoreProduct[];
-        count: number;
-      }>(`${this.#medusaConfig.baseUrl}/store/products`, {
-        params: {
-          limit,
-          offset,
-          region_id: region?.id,
-          fields:
-            '*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags',
-          ...queryParams,
-        },
-        headers: {
-          'x-publishable-api-key':
-            import.meta.env['VITE_MEDUSA_CHANNEL_PUBLISHABLE_KEY'] || '',
-        },
-      })
-    );
+    const response = await this.#sdk.store.product.list({
+        limit,
+        offset,
+        region_id: region?.id,
+        fields:
+          '*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags',
+        ...queryParams,
+    });
 
     if (!response) {
       return {
@@ -102,45 +89,20 @@ export class MedusaService {
     };
   }
 
-  public listCollections(queryParams: Record<string, string> = {}): Observable<{
-    collections: HttpTypes.StoreCollection[];
-    count: number;
-  }> {
-    return this.#http
-      .get<{
-        collections: HttpTypes.StoreCollection[];
-        count: number;
-      }>(`${this.#medusaConfig.baseUrl}/store/collections`, {
-        params: queryParams,
-        headers: {
-          'x-publishable-api-key':
-            import.meta.env['VITE_MEDUSA_CHANNEL_PUBLISHABLE_KEY'] || '',
-        },
-      })
-      .pipe(
-        map(({ collections }) => ({ collections, count: collections.length }))
-      );
+  public async listCollections(queryParams: Record<string, string> = {}) {
+    return this.#sdk.store.collection.list(queryParams)
+      .then(({ collections, count}) => ({
+        collections,
+        count
+      }));
   }
 
   /**
    * Regions
    */
 
-  public listRegions(): Observable<HttpTypes.StoreRegion[]> {
-    return this.#http
-      .get<{ regions: HttpTypes.StoreRegion[] }>(
-        `${this.#medusaConfig.baseUrl}/store/regions`,
-        {
-          headers: {
-            'x-publishable-api-key':
-              import.meta.env['VITE_MEDUSA_CHANNEL_PUBLISHABLE_KEY'] || '',
-          },
-        }
-      )
-      .pipe(
-        map(({ regions }) => regions),
-        catchError((error) => medusaError(error))
-      );
+  public async listRegions() {
+    return this.#sdk.store.region.list().then(m => m.regions);
   }
 
   public async getRegion(countryCode: string) {
@@ -149,7 +111,7 @@ export class MedusaService {
         return this.#regionMap.get(countryCode);
       }
 
-      const regions = await firstValueFrom(this.listRegions());
+      const regions = await this.listRegions();
 
       if (!regions) {
         return null;
@@ -173,17 +135,7 @@ export class MedusaService {
 
   public retrieveRegion = async (id: string) => {
     try {
-      const response = await firstValueFrom(
-        this.#http.get<{ region: HttpTypes.StoreRegion }>(
-          `${this.#medusaConfig.baseUrl}/store/regions/${id}`,
-          {
-            headers: {
-              'x-publishable-api-key':
-                import.meta.env['VITE_MEDUSA_CHANNEL_PUBLISHABLE_KEY'] || '',
-            },
-          }
-        )
-      );
+      const response = await this.#sdk.store.region.retrieve(id);
       return response.region;
     } catch (error) {
       return medusaError(error);
